@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerTaskController as ControllersVolunteerTaskController;
+use App\Http\Controllers\Admin\DonationController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VolunteerTaskController;
 use App\Http\Controllers\Donor\DonorController;
@@ -32,6 +34,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/volunteer-tasks/{volunteer_task}/edit', [VolunteerTaskController::class, 'edit'])->name('admin.volunteer-tasks.edit');
     Route::put('admin/volunteer-tasks/{volunteer_task}', [VolunteerTaskController::class, 'update'])->name('admin.volunteer-tasks.update');
     Route::delete('admin/volunteer-tTasks/{volunteer_task}', [VolunteerTaskController::class, 'destroy'])->name('admin.volunteer-tasks.destroy');
+    Route::get('admin/donations', [DonationController::class, 'index'])->name('admin.donations.index');
+    Route::get('admin/donations/create', [DonationController::class, 'create'])->name('admin.donations.create');
+    Route::post('admin/donations', [DonationController::class, 'store'])->name('admin.donations.store');
+    Route::get('admin/donations/{donation}/edit', [DonationController::class, 'edit'])->name('admin.donations.edit');
+    Route::put('admin/donations/{donation}', [DonationController::class, 'update'])->name('admin.donations.update');
+    Route::delete('admin/donations/{donation}', [DonationController::class, 'destroy'])->name('admin.donations.destroy');
+    Route::get('admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('admin/orders/{order}/edit', [OrderController::class, 'edit'])->name('admin.orders.edit');
+    Route::put('admin/orders/{order}', [OrderController::class, 'update'])->name('admin.orders.update');
+    Route::delete('admin/orders/{order}', [OrderController::class, 'destroy'])->name('admin.orders.destroy');
 });
 
 Route::middleware(['auth', 'role:donor'])->group(function () {

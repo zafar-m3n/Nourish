@@ -20,13 +20,13 @@
                             <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                                 {{ __('Users') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('admin.donations.index')" :active="request()->routeIs('admin.donations.index')">
                                 {{ __('Donations') }}
                             </x-nav-link>
                             <x-nav-link :href="route('admin.volunteer-tasks.index')" :active="request()->routeIs('admin.volunteer-tasks.index')">
                                 {{ __('Volunteer Tasks') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('admin.orders.index')" :active="request()->routeIs('admin.orders.index')">
                                 {{ __('Recipients') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'donor')
