@@ -5,6 +5,7 @@ use App\Http\Controllers\VolunteerTaskController as ControllersVolunteerTaskCont
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VolunteerTaskController;
 use App\Http\Controllers\Donor\DonorController;
+use App\Http\Controllers\DonationOrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -57,6 +58,9 @@ Route::middleware(['auth', 'role:recipient'])->group(function () {
     Route::get('/recipient/dashboard', function () {
         return view('recipient.dashboard');
     })->name('recipient.dashboard');
+    Route::get('recipient/donations/available', [DonationOrderController::class, 'availableDonations'])->name('recipient.available_donations');
+    Route::post('recipient/donations/order/{donation}', [DonationOrderController::class, 'placeOrder'])->name('recipient.place_order');
+    Route::get('recipient/orders/my-orders', [DonationOrderController::class, 'myOrders'])->name('recipient.my_orders');
 });
 
 

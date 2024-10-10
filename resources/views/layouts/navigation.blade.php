@@ -53,10 +53,10 @@
                             <x-nav-link :href="route('recipient.dashboard')" :active="request()->routeIs('recipient.dashboard')">
                                 {{ __('Dashboard') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('recipient.available_donations')" :active="request()->routeIs('recipient.available_donations')">
                                 {{ __('Available Donations') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('recipient.my_orders')" :active="request()->routeIs('recipient.my_orders')">
                                 {{ __('My Orders') }}
                             </x-nav-link>
                         @endif
