@@ -41,4 +41,13 @@ class DonorController extends Controller
 
         return redirect()->route('donor.my_donations')->with('success', 'Donation created successfully!');
     }
+
+    public function donationHistory()
+    {
+        $donations = Donation::where('user_id', Auth::id())
+            ->whereIn('status', ['in_transit', 'delivered'])
+            ->get();
+
+        return view('donor.donation_history', compact('donations'));
+    }
 }

@@ -36,7 +36,7 @@
                             <x-nav-link :href="route('donor.my_donations')" :active="request()->routeIs('donor.my_donations')">
                                 {{ __('My Donations') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('donor.donations.history')" :active="request()->routeIs('donor.donations.history')">
                                 {{ __('Donation History') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'volunteer')
@@ -169,7 +169,7 @@
                     <x-responsive-nav-link :href="route('donor.my_donations')" :active="request()->routeIs('donor.my_donations')">
                         {{ __('My Donations') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('donor.donations.history')" :active="request()->routeIs('donor.donations.history')">
                         {{ __('Donation History') }}
                     </x-responsive-nav-link>
                 @elseif (Auth::user()->role === 'volunteer')

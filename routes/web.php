@@ -32,6 +32,7 @@ Route::middleware(['auth', 'role:donor'])->group(function () {
     Route::get('/donor/my-donations', [DonorController::class, 'myDonations'])->name('donor.my_donations');
     Route::get('/donor/donations/create', [DonorController::class, 'create'])->name('donor.donations.create');
     Route::post('/donor/donations', [DonorController::class, 'store'])->name('donor.donations.store');
+    Route::get('/donor/donations/history', [DonorController::class, 'donationHistory'])->name('donor.donations.history');
 });
 
 Route::middleware(['auth', 'role:volunteer'])->group(function () {
