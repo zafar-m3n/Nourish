@@ -43,10 +43,10 @@
                             <x-nav-link :href="route('volunteer.dashboard')" :active="request()->routeIs('volunteer.dashboard')">
                                 {{ __('Dashboard') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('volunteer.available_tasks')" :active="request()->routeIs('volunteer.available_tasks')">
                                 {{ __('Available Tasks') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('volunteer.my_tasks')" :active="request()->routeIs('volunteer.my_tasks')">
                                 {{ __('My Tasks') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'recipient')

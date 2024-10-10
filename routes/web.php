@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VolunteerTaskController as ControllersVolunteerTaskController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VolunteerTaskController;
 use App\Http\Controllers\Donor\DonorController;
@@ -46,6 +47,10 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
     Route::get('/volunteer/dashboard', function () {
         return view('volunteer.dashboard');
     })->name('volunteer.dashboard');
+    Route::get('volunteer/tasks/available', [ControllersVolunteerTaskController::class, 'availableTasks'])->name('volunteer.available_tasks');
+    Route::post('volunteer/tasks/assign/{volunteerTask}', [ControllersVolunteerTaskController::class, 'assignTask'])->name('volunteer.assign_task');
+    Route::get('volunteer/tasks/my-tasks', [ControllersVolunteerTaskController::class, 'myTasks'])->name('volunteer.my_tasks');
+    Route::put('volunteer/tasks/complete/{volunteerTask}', [ControllersVolunteerTaskController::class, 'completeTask'])->name('volunteer.complete_task');
 });
 
 Route::middleware(['auth', 'role:recipient'])->group(function () {
