@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,18 +24,24 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 });
 
-
-Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::get('/customer/home', function () {
-        return view('customer.home');
-    })->name('customer.home');
+Route::middleware(['auth', 'role:donor'])->group(function () {
+    Route::get('/donor/dashboard', function () {
+        return view('donor.dashboard');
+    })->name('donor.dashboard');
 });
 
-Route::middleware(['auth', 'role:clothingbusiness'])->group(function () {
-    Route::get('/clothingbusiness/home', function () {
-        return view('clothingbusiness.home');
-    })->name('clothingbusiness.home');
+Route::middleware(['auth', 'role:volunteer'])->group(function () {
+    Route::get('/volunteer/dashboard', function () {
+        return view('volunteer.dashboard');
+    })->name('volunteer.dashboard');
 });
+
+Route::middleware(['auth', 'role:recipient'])->group(function () {
+    Route::get('/recipient/dashboard', function () {
+        return view('recipient.dashboard');
+    })->name('recipient.dashboard');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

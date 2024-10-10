@@ -16,7 +16,8 @@ class UserController extends Controller
 
     public function create()
     {
-        $roles = ['admin', 'customer', 'clothingbusiness'];
+        // Adjusted roles to match the system roles
+        $roles = ['admin', 'donor', 'volunteer', 'recipient'];
         return view('admin.users.create', compact('roles'));
     }
 
@@ -26,7 +27,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:admin,customer,clothingbusiness',
+            'role' => 'required|string|in:admin,donor,volunteer,recipient',
         ]);
 
         User::create([
@@ -41,7 +42,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $roles = ['admin', 'customer', 'clothingbusiness'];
+        // Adjusted roles to match the system roles
+        $roles = ['admin', 'donor', 'volunteer', 'recipient'];
         return view('admin.users.edit', compact('user', 'roles'));
     }
 
@@ -51,7 +53,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
-            'role' => 'required|string|in:admin,customer,clothingbusiness',
+            'role' => 'required|string|in:admin,donor,volunteer,recipient',
         ]);
 
         $user->update([

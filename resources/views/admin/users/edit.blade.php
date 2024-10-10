@@ -43,7 +43,8 @@
                             <select name="role" id="role" class="mt-1 block w-full">
                                 @foreach ($roles as $role)
                                     <option value="{{ $role }}" {{ $user->role == $role ? 'selected' : '' }}>
-                                        {{ ucfirst($role) }}</option>
+                                        {{ ucfirst($role) }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

@@ -36,7 +36,7 @@
 
                         <div class="mb-4">
                             <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                            <select name="role" id="role" class="mt-1 block w-full">
+                            <select name="role" id="role" class="mt-1 block w-full" required>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role }}">{{ ucfirst($role) }}</option>
                                 @endforeach
