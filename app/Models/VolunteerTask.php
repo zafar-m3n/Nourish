@@ -11,13 +11,15 @@ class VolunteerTask extends Model
 
     protected $fillable = ['volunteer_id', 'donation_id', 'task_type', 'status', 'due_date'];
 
-    // Relationship: A task belongs to a volunteer (User)
+    protected $casts = [
+        'due_date' => 'date',
+    ];
+
     public function volunteer()
     {
         return $this->belongsTo(User::class, 'volunteer_id');
     }
 
-    // Relationship: A task belongs to a donation
     public function donation()
     {
         return $this->belongsTo(Donation::class);

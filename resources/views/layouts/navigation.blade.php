@@ -23,8 +23,8 @@
                             <x-nav-link href="#">
                                 {{ __('Donations') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
-                                {{ __('Volunteers') }}
+                            <x-nav-link :href="route('admin.volunteer-tasks.index')" :active="request()->routeIs('admin.volunteer-tasks.index')">
+                                {{ __('Volunteer Tasks') }}
                             </x-nav-link>
                             <x-nav-link href="#">
                                 {{ __('Recipients') }}
@@ -156,8 +156,8 @@
                     <x-responsive-nav-link href="#">
                         {{ __('Donations') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
-                        {{ __('Volunteers') }}
+                    <x-responsive-nav-link :href="route('admin.volunteer-tasks.index')" :active="request()->routeIs('admin.volunteer-tasks.index')">
+                        {{ __('Volunteer Tasks') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
                         {{ __('Recipients') }}

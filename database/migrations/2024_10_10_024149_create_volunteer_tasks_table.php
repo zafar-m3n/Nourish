@@ -12,7 +12,8 @@ return new class extends Migration {
     {
         Schema::create('volunteer_tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('volunteer_id')->constrained('users')->onDelete('cascade'); // Link to volunteer (user)
+            // Make volunteer_id nullable for unassigned tasks
+            $table->foreignId('volunteer_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('donation_id')->constrained('donations')->onDelete('cascade');
             $table->enum('task_type', ['collection', 'delivery']);
             $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');

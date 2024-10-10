@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VolunteerTaskController;
 use App\Http\Controllers\Donor\DonorController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
     Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
     Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+    Route::get('admin/volunteer-tasks', [VolunteerTaskController::class, 'index'])->name('admin.volunteer-tasks.index');
+    Route::get('admin/volunteer-tasks/create', [VolunteerTaskController::class, 'create'])->name('admin.volunteer-tasks.create');
+    Route::post('admin/volunteer-tasks', [VolunteerTaskController::class, 'store'])->name('admin.volunteer-tasks.store');
+    Route::get('admin/volunteer-tasks/{volunteer_task}/edit', [VolunteerTaskController::class, 'edit'])->name('admin.volunteer-tasks.edit');
+    Route::put('admin/volunteer-tasks/{volunteer_task}', [VolunteerTaskController::class, 'update'])->name('admin.volunteer-tasks.update');
+    Route::delete('admin/volunteer-tTasks/{volunteer_task}', [VolunteerTaskController::class, 'destroy'])->name('admin.volunteer-tasks.destroy');
 });
 
 Route::middleware(['auth', 'role:donor'])->group(function () {
