@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Donor\DonorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,6 +29,9 @@ Route::middleware(['auth', 'role:donor'])->group(function () {
     Route::get('/donor/dashboard', function () {
         return view('donor.dashboard');
     })->name('donor.dashboard');
+    Route::get('/donor/my-donations', [DonorController::class, 'myDonations'])->name('donor.my_donations');
+    Route::get('/donor/donations/create', [DonorController::class, 'create'])->name('donor.donations.create');
+    Route::post('/donor/donations', [DonorController::class, 'store'])->name('donor.donations.store');
 });
 
 Route::middleware(['auth', 'role:volunteer'])->group(function () {
