@@ -27,7 +27,7 @@
                                 {{ __('Volunteer Tasks') }}
                             </x-nav-link>
                             <x-nav-link :href="route('admin.orders.index')" :active="request()->routeIs('admin.orders.index')">
-                                {{ __('Recipients') }}
+                                {{ __('Orders') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'donor')
                             <x-nav-link :href="route('donor.dashboard')" :active="request()->routeIs('donor.dashboard')">

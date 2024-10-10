@@ -35,13 +35,15 @@ public function store(LoginRequest $request): RedirectResponse
 
     if ($user->role === 'admin') {
         return redirect()->route('admin.dashboard');
-    } elseif ($user->role === 'customer') {
-        return redirect()->route('customer.home');
-    } elseif ($user->role === 'clothingbusiness') {
-        return redirect()->route('clothingbusiness.home');
+    } elseif ($user->role === 'volunteer') {
+        return redirect()->route('volunteer.dashboard');
+    } elseif ($user->role === 'donor') {
+        return redirect()->route('donor.dashboard');
+    } elseif ($user->role === 'recipient') {
+        return redirect()->route('recipient.dashboard');
     }
 
-    return redirect()->intended(route('dashboard'));
+    return redirect()->intended(route('login'));
 }
 
 
