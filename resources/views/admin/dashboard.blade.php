@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold">Total Users</h4>
-                                    <p class="mt-2 text-3xl font-bold text-blue-700">100</p>
+                                    <p class="mt-2 text-3xl font-bold text-blue-700">{{ $totalUsers }}</p>
                                 </div>
                             </div>
                         </div>
@@ -28,8 +28,8 @@
                                     <i class="fas fa-user-friends text-white"></i>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-lg font-semibold">Total Customers</h4>
-                                    <p class="mt-2 text-3xl font-bold text-green-700">50</p>
+                                    <h4 class="text-lg font-semibold">Total Donors</h4>
+                                    <p class="mt-2 text-3xl font-bold text-green-700">{{ $totalDonors }}</p>
                                 </div>
                             </div>
                         </div>
@@ -39,8 +39,8 @@
                                     <i class="fas fa-store text-white"></i>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-lg font-semibold">Total Clothing Businesses</h4>
-                                    <p class="mt-2 text-3xl font-bold text-red-700">50</p>
+                                    <h4 class="text-lg font-semibold">Total Volunteers</h4>
+                                    <p class="mt-2 text-3xl font-bold text-red-700">{{ $totalVolunteers }}</p>
                                 </div>
                             </div>
                         </div>
@@ -50,8 +50,8 @@
                                     <i class="fas fa-tags text-white"></i>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-lg font-semibold">Total Product Categories</h4>
-                                    <p class="mt-2 text-3xl font-bold text-yellow-700">10</p>
+                                    <h4 class="text-lg font-semibold">Total Recipients</h4>
+                                    <p class="mt-2 text-3xl font-bold text-yellow-700">{{ $totalRecipients }}</p>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,8 @@
                                     <i class="fas fa-envelope text-white"></i>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-lg font-semibold">Total Newsletters</h4>
-                                    <p class="mt-2 text-3xl font-bold text-purple-700">5</p>
+                                    <h4 class="text-lg font-semibold">Total Donations</h4>
+                                    <p class="mt-2 text-3xl font-bold text-purple-700">{{ $totalDonations }}</p>
                                 </div>
                             </div>
                         </div>
@@ -72,8 +72,19 @@
                                     <i class="fas fa-bullhorn text-white"></i>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-lg font-semibold">Total Promotions</h4>
-                                    <p class="mt-2 text-3xl font-bold text-pink-700">2</p>
+                                    <h4 class="text-lg font-semibold">Total Orders</h4>
+                                    <p class="mt-2 text-3xl font-bold text-pink-700">{{ $totalOrders }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg bg-teal-100 p-6 shadow-lg">
+                            <div class="flex items-center">
+                                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-teal-500">
+                                    <i class="fas fa-tasks text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold">Total Tasks</h4>
+                                    <p class="mt-2 text-3xl font-bold text-teal-700">{{ $totalTasks }}</p>
                                 </div>
                             </div>
                         </div>

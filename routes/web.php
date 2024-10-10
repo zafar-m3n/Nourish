@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerTaskController as ControllersVolunteerTaskController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\UserController;
@@ -19,9 +20,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
@@ -47,9 +46,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:donor'])->group(function () {
-    Route::get('/donor/dashboard', function () {
-        return view('donor.dashboard');
-    })->name('donor.dashboard');
+    Route::get('/donor/dashboard', [DashboardController::class, 'index'])->name('donor.dashboard');
     Route::get('/donor/my-donations', [DonorController::class, 'myDonations'])->name('donor.my_donations');
     Route::get('/donor/donations/create', [DonorController::class, 'create'])->name('donor.donations.create');
     Route::post('/donor/donations', [DonorController::class, 'store'])->name('donor.donations.store');
@@ -57,9 +54,7 @@ Route::middleware(['auth', 'role:donor'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:volunteer'])->group(function () {
-    Route::get('/volunteer/dashboard', function () {
-        return view('volunteer.dashboard');
-    })->name('volunteer.dashboard');
+    Route::get('/volunteer/dashboard', [DashboardController::class, 'index'])->name('volunteer.dashboard');
     Route::get('volunteer/tasks/available', [ControllersVolunteerTaskController::class, 'availableTasks'])->name('volunteer.available_tasks');
     Route::post('volunteer/tasks/assign/{volunteerTask}', [ControllersVolunteerTaskController::class, 'assignTask'])->name('volunteer.assign_task');
     Route::get('volunteer/tasks/my-tasks', [ControllersVolunteerTaskController::class, 'myTasks'])->name('volunteer.my_tasks');
@@ -67,9 +62,7 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:recipient'])->group(function () {
-    Route::get('/recipient/dashboard', function () {
-        return view('recipient.dashboard');
-    })->name('recipient.dashboard');
+    Route::get('/recipient/dashboard', [DashboardController::class, 'index'])->name('recipient.dashboard');
     Route::get('recipient/donations/available', [DonationOrderController::class, 'availableDonations'])->name('recipient.available_donations');
     Route::post('recipient/donations/order/{donation}', [DonationOrderController::class, 'placeOrder'])->name('recipient.place_order');
     Route::get('recipient/orders/my-orders', [DonationOrderController::class, 'myOrders'])->name('recipient.my_orders');
